@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SEO — Search Engine Optimization | APEX360</title>
+<meta name="description" content="Estratégias de SEO que colocam sua empresa no topo das buscas orgânicas. SEO técnico, on-page, link building e conteúdo."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #fff; color: #111; }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #FF4D00, #E8002D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-brand-gradient { background: linear-gradient(135deg, #FF4D00, #E8002D); }
+
+  .animate-on-scroll { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+  .stagger-1 { transition-delay: 0.05s; }
+  .stagger-2 { transition-delay: 0.1s; }
+  .stagger-3 { transition-delay: 0.15s; }
+  .stagger-4 { transition-delay: 0.2s; }
+  .stagger-5 { transition-delay: 0.25s; }
+  .stagger-6 { transition-delay: 0.3s; }
+
+  .faq-answer { display: none; }
+  .faq-item.open .faq-answer { display: block; }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-chevron { transition: transform 0.3s ease; }
+
+  /* Navbar scroll effect */
+  .navbar-scrolled { background: rgba(255,255,255,0.95) !important; backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(0,0,0,0.05); }
+  .navbar-scrolled .nav-link { color: #111 !important; }
+  .navbar-scrolled .nav-link:hover { color: #FF4D00 !important; }
+  .navbar-scrolled .logo-text { color: #111 !important; }
+
+  /* Mobile menu */
+  .mobile-menu { display: none; }
+  .mobile-menu.open { display: flex; }
+</style>
+</head>
+<body>
+
+<!-- ─── Navbar ─────────────────────────────────────────────────────────────── -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="bundle.html" class="flex items-center gap-2 group" style="text-decoration:none">
+      <div class="w-8 h-8 bg-brand-gradient rounded flex items-center justify-center">
+        <span class="text-white font-bold text-sm" style="font-family:'Syne',sans-serif">A</span>
+      </div>
+      <span class="logo-text font-bold text-xl tracking-tight text-white" style="font-family:'Syne',sans-serif">
+        APEX<span class="text-gradient">360</span>
+      </span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="bundle.html#servicos" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors" style="text-decoration:none">Serviços</a>
+      <a href="bundle.html#cases" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors" style="text-decoration:none">Cases</a>
+      <a href="bundle.html#sobre" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors" style="text-decoration:none">Sobre</a>
+      <a href="bundle.html#contato" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors" style="text-decoration:none">Contato</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="#contato" class="bg-brand-gradient text-white text-sm font-semibold px-5 py-2.5 rounded hover:opacity-90 transition-opacity" style="text-decoration:none">Fale Conosco</a>
+    </div>
+
+    <button id="menu-toggle" class="md:hidden p-2 flex flex-col gap-1.5">
+      <span class="block w-5 h-0.5 bg-white transition-all" id="bar1"></span>
+      <span class="block w-5 h-0.5 bg-white transition-all" id="bar2"></span>
+      <span class="block w-5 h-0.5 bg-white transition-all" id="bar3"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu md:hidden bg-[#0A0A0A] border-t border-white/10 px-6 py-6 flex-col gap-4">
+    <a href="bundle.html#servicos" class="text-base font-medium text-gray-300 hover:text-white" style="text-decoration:none">Serviços</a>
+    <a href="bundle.html#cases" class="text-base font-medium text-gray-300 hover:text-white" style="text-decoration:none">Cases</a>
+    <a href="bundle.html#sobre" class="text-base font-medium text-gray-300 hover:text-white" style="text-decoration:none">Sobre</a>
+    <a href="bundle.html#contato" class="text-base font-medium text-gray-300 hover:text-white" style="text-decoration:none">Contato</a>
+    <a href="#contato" class="bg-brand-gradient text-white text-sm font-semibold px-5 py-3 rounded text-center mt-2" style="text-decoration:none">Fale Conosco</a>
+  </div>
+</nav>
+
+<!-- ─── Hero ───────────────────────────────────────────────────────────────── -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-[#0A0A0A]">
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full opacity-10"
+      style="background:radial-gradient(circle,#FF4D00 0%,transparent 70%)"></div>
+    <div class="absolute bottom-0 left-0 w-[300px] h-[300px] opacity-5"
+      style="background:radial-gradient(circle,#E8002D 0%,transparent 70%)"></div>
+    <div class="absolute inset-0" style="background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 border border-white/10 rounded px-3 py-1.5 mb-8" style="background:rgba(255,255,255,0.05)">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="#FF4D00" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <span class="text-gray-400 text-xs font-medium tracking-wider uppercase">SEO — Search Engine Optimization</span>
+      </div>
+
+      <h1 class="text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6" style="font-family:'Syne',sans-serif">
+        Apareça em <span class="text-gradient">primeiro</span> no Google
+      </h1>
+
+      <p class="text-gray-400 text-lg leading-relaxed mb-10 max-w-2xl">
+        Estratégias de SEO que colocam sua empresa no topo das buscas orgânicas,
+        geram tráfego qualificado e convertem visitantes em clientes. Resultado duradouro,
+        sem depender só de anúncios.
+      </p>
+
+      <div class="flex flex-wrap gap-4">
+        <a href="#contato" class="bg-brand-gradient text-white font-semibold px-8 py-4 rounded hover:opacity-90 transition-opacity text-base" style="text-decoration:none">
+          Quero rankear agora
+        </a>
+        <a href="#servicos" class="border border-white/20 text-white font-semibold px-8 py-4 rounded hover:bg-white/5 transition-colors text-base" style="text-decoration:none">
+          Ver serviços
+        </a>
+      </div>
+
+      <div class="mt-14 grid grid-cols-3 gap-8 max-w-md">
+        <div>
+          <div class="text-3xl font-bold text-white mb-1" style="font-family:'Syne',sans-serif"><span data-counter="12000" data-prefix="+">0</span></div>
+          <div class="text-gray-500 text-xs leading-tight">Posições ganhas</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white mb-1" style="font-family:'Syne',sans-serif"><span data-counter="87">0</span></div>
+          <div class="text-gray-500 text-xs leading-tight">Clientes ativos</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-white mb-1" style="font-family:'Syne',sans-serif"><span data-counter="4" data-suffix="x">0</span></div>
+          <div class="text-gray-500 text-xs leading-tight">Tráfego médio gerado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── O que é SEO ────────────────────────────────────────────────────────── -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="animate-on-scroll">
+        <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">O que é SEO?</span>
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" style="font-family:'Syne',sans-serif">
+          Visibilidade orgânica que gera crescimento real
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+          SEO (Search Engine Optimization) é o conjunto de técnicas que fazem seu site aparecer nas primeiras posições do Google e outros buscadores — sem pagar por cada clique.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Enquanto os anúncios param quando você para de pagar, o SEO constrói uma presença digital sólida e duradoura. Cada conteúdo otimizado, cada link conquistado e cada melhoria técnica acumula autoridade para sua marca ao longo do tempo.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="#FF4D00" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-gray-700">Tráfego qualificado 24h por dia, 7 dias por semana</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="#FF4D00" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-gray-700">Menor custo por aquisição a longo prazo</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="#FF4D00" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-gray-700">Autoridade e credibilidade de marca</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="#FF4D00" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-gray-700">Resultados cumulativos e sustentáveis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll stagger-2">
+        <div class="bg-[#0A0A0A] rounded-2xl p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 opacity-10"
+            style="background:radial-gradient(circle,#FF4D00,transparent 70%)"></div>
+          <div class="text-gray-400 text-sm mb-6" style="font-family:monospace">// Resultado orgânico Google</div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600 text-sm w-4" style="font-family:monospace">1</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-sm text-white font-semibold">seusite.com.br</span>
+                  <span class="text-xs text-gray-500">31% dos cliques</span>
+                </div>
+                <div class="w-full rounded-full h-1.5" style="background:rgba(255,255,255,0.05)">
+                  <div class="h-1.5 rounded-full" style="width:31%;background:#FF4D00"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600 text-sm w-4" style="font-family:monospace">2</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-sm text-white font-semibold">concorrente1.com</span>
+                  <span class="text-xs text-gray-500">24% dos cliques</span>
+                </div>
+                <div class="w-full rounded-full h-1.5" style="background:rgba(255,255,255,0.05)">
+                  <div class="h-1.5 rounded-full" style="width:24%;background:#FF4D00"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600 text-sm w-4" style="font-family:monospace">3</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-sm text-gray-500">concorrente2.com</span>
+                  <span class="text-xs text-gray-500">18% dos cliques</span>
+                </div>
+                <div class="w-full rounded-full h-1.5" style="background:rgba(255,255,255,0.05)">
+                  <div class="h-1.5 rounded-full" style="width:18%;background:#ff6b35"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600 text-sm w-4" style="font-family:monospace">4</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-sm text-gray-500">concorrente3.com</span>
+                  <span class="text-xs text-gray-500">10% dos cliques</span>
+                </div>
+                <div class="w-full rounded-full h-1.5" style="background:rgba(255,255,255,0.05)">
+                  <div class="h-1.5 rounded-full" style="width:10%;background:#666"></div>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="text-gray-600 text-sm w-4" style="font-family:monospace">5</span>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-1.5">
+                  <span class="text-sm text-gray-500">concorrente4.com</span>
+                  <span class="text-xs text-gray-500">6% dos cliques</span>
+                </div>
+                <div class="w-full rounded-full h-1.5" style="background:rgba(255,255,255,0.05)">
+                  <div class="h-1.5 rounded-full" style="width:6%;background:#444"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-white/10 text-center">
+            <span class="text-gray-500 text-xs">Os 3 primeiros resultados capturam +73% dos cliques</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Serviços SEO ────────────────────────────────────────────────────────── -->
+<section id="servicos" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">Nossos Serviços</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5" style="font-family:'Syne',sans-serif">
+        SEO completo, do técnico ao conteúdo
+      </h2>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">
+        Atuamos em todas as frentes para garantir que seu site seja encontrado pelas pessoas certas, na hora certa.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- SEO On-Page -->
+      <div class="animate-on-scroll stagger-1 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">SEO On-Page</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Otimização completa de cada página: títulos, meta tags, headings, estrutura de URL, conteúdo, imagens e linkagem interna para máxima relevância.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Pesquisa e estratégia de palavras-chave</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Otimização de títulos e meta descriptions</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Estruturação de headings (H1–H6)</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Otimização de imagens e alt texts</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Linkagem interna estratégica</li>
+        </ul>
+      </div>
+
+      <!-- SEO Técnico -->
+      <div class="animate-on-scroll stagger-2 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">SEO Técnico</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Garante que os mecanismos de busca consigam rastrear, indexar e compreender seu site. Base sólida para qualquer estratégia SEO.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Auditoria técnica completa</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Core Web Vitals e velocidade</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Sitemap XML e robots.txt</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Dados estruturados (Schema.org)</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Mobile-first e HTTPS</li>
+        </ul>
+      </div>
+
+      <!-- Link Building -->
+      <div class="animate-on-scroll stagger-3 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">Link Building</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Construção de autoridade por meio de backlinks relevantes e de alta qualidade, aumentando a credibilidade do seu domínio perante o Google.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Prospecção de links qualificados</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Guest posts em portais relevantes</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Digital PR e assessoria de imprensa</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Recuperação de links perdidos</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Análise de perfil de backlinks</li>
+        </ul>
+      </div>
+
+      <!-- SEO de Conteúdo -->
+      <div class="animate-on-scroll stagger-4 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">SEO de Conteúdo</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Criação e otimização de conteúdo estratégico que atrai, engaja e converte o público certo em cada etapa do funil de compra.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Estratégia de conteúdo por funil</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Produção de artigos otimizados</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Atualização de conteúdo existente</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Calendário editorial SEO</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Cluster de tópicos e pillar pages</li>
+        </ul>
+      </div>
+
+      <!-- SEO Local -->
+      <div class="animate-on-scroll stagger-5 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">SEO Local</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Apareça nas buscas de quem está perto de você. Ideal para negócios físicos ou que atendem regiões específicas.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Otimização do Google Meu Negócio</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Citations e diretórios locais</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Avaliações e reputação online</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Conteúdo geolocalizado</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Palavras-chave por cidade/bairro</li>
+        </ul>
+      </div>
+
+      <!-- SEO Internacional -->
+      <div class="animate-on-scroll stagger-6 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">SEO Internacional</h3>
+        <p class="text-gray-500 text-sm leading-relaxed mb-5">Expanda para novos mercados globais com estratégias de SEO multiidioma, hreflang e otimização por país e idioma.</p>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Implementação de hreflang</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Estratégia por país/idioma</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Análise de concorrência global</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>CDN e performance internacional</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="w-1.5 h-1.5 rounded-full bg-[#FF4D00] mt-1.5 flex-shrink-0 block"></span>Conteúdo adaptado por mercado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Processo ────────────────────────────────────────────────────────────── -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">Nossa Metodologia</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5" style="font-family:'Syne',sans-serif">Como trabalhamos</h2>
+      <p class="text-gray-500 text-lg max-w-2xl mx-auto">Um processo estruturado e transparente para levar seu site ao topo das buscas.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="animate-on-scroll stagger-1 text-center">
+        <div class="w-24 h-24 bg-[#0A0A0A] rounded-2xl flex flex-col items-center justify-center mx-auto mb-6">
+          <span class="text-xs font-mono mb-1" style="color:#FF4D00">01</span>
+          <svg class="w-6 h-6 text-white" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">Diagnóstico & Auditoria</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Mapeamos a situação atual do seu site: performance técnica, posicionamento de palavras-chave, perfil de backlinks e análise da concorrência.</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-2 text-center">
+        <div class="w-24 h-24 bg-[#0A0A0A] rounded-2xl flex flex-col items-center justify-center mx-auto mb-6">
+          <span class="text-xs font-mono mb-1" style="color:#FF4D00">02</span>
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">Estratégia Personalizada</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Com base no diagnóstico, criamos um plano de ação com prioridades claras, metas de crescimento e cronograma de execução.</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-3 text-center">
+        <div class="w-24 h-24 bg-[#0A0A0A] rounded-2xl flex flex-col items-center justify-center mx-auto mb-6">
+          <span class="text-xs font-mono mb-1" style="color:#FF4D00">03</span>
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">Implementação</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Executamos as otimizações técnicas e de conteúdo, construímos links e implementamos todas as melhorias mapeadas na estratégia.</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-4 text-center">
+        <div class="w-24 h-24 bg-[#0A0A0A] rounded-2xl flex flex-col items-center justify-center mx-auto mb-6">
+          <span class="text-xs font-mono mb-1" style="color:#FF4D00">04</span>
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-3" style="font-family:'Syne',sans-serif">Monitoramento & Evolução</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Acompanhamos os rankings, tráfego e conversões em tempo real, ajustando a estratégia continuamente para maximizar os resultados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Resultados ─────────────────────────────────────────────────────────── -->
+<section class="py-24 bg-[#0A0A0A]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">Resultados</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-white mb-5" style="font-family:'Syne',sans-serif">Números que comprovam</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Dados reais dos nossos clientes. SEO feito com método gera resultados consistentes.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+      <div class="animate-on-scroll stagger-1 rounded-xl p-8 text-center border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div class="text-4xl font-bold text-white mb-2" style="font-family:'Syne',sans-serif"><span data-counter="340" data-suffix="%">0</span></div>
+        <p class="text-gray-500 text-sm leading-relaxed">Aumento médio de tráfego orgânico em 12 meses</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-2 rounded-xl p-8 text-center border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="text-4xl font-bold text-white mb-2" style="font-family:'Syne',sans-serif"><span data-counter="1" data-suffix="ª">0</span></div>
+        <p class="text-gray-500 text-sm leading-relaxed">Posição no Google para palavras-chave estratégicas</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-3 rounded-xl p-8 text-center border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="text-4xl font-bold text-white mb-2" style="font-family:'Syne',sans-serif"><span data-counter="220" data-suffix="+">0</span></div>
+        <p class="text-gray-500 text-sm leading-relaxed">Projetos de SEO entregues com sucesso</p>
+      </div>
+
+      <div class="animate-on-scroll stagger-4 rounded-xl p-8 text-center border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <div class="w-12 h-12 bg-brand-gradient rounded-lg flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="text-4xl font-bold text-white mb-2" style="font-family:'Syne',sans-serif"><span data-counter="89" data-suffix="%">0</span></div>
+        <p class="text-gray-500 text-sm leading-relaxed">Dos clientes renovam o contrato anualmente</p>
+      </div>
+    </div>
+
+    <!-- Cases -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <div class="animate-on-scroll stagger-1 rounded-xl p-8 border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <span class="text-xs font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">E-commerce — Moda</span>
+        <h3 class="text-2xl font-bold text-white mb-4" style="font-family:'Syne',sans-serif">De 200 para 18.000 visitas orgânicas/mês</h3>
+        <p class="text-gray-400 leading-relaxed mb-6">Em 9 meses de trabalho, combinamos SEO técnico, estratégia de conteúdo e link building para transformar um e-commerce de moda em referência do setor.</p>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">+8.900%</div>
+            <div class="text-gray-600 text-xs">tráfego orgânico</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">312</div>
+            <div class="text-gray-600 text-xs">palavras no top 3</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">R$ 2,1M</div>
+            <div class="text-gray-600 text-xs">receita gerada</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll stagger-2 rounded-xl p-8 border border-white/10" style="background:rgba(255,255,255,0.05)">
+        <span class="text-xs font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">SaaS — B2B</span>
+        <h3 class="text-2xl font-bold text-white mb-4" style="font-family:'Syne',sans-serif">Primeiro lugar para 47 palavras-chave do setor</h3>
+        <p class="text-gray-400 leading-relaxed mb-6">Uma empresa de software B2B que dependia 100% de anúncios passou a gerar 70% dos leads via busca orgânica após 12 meses de SEO estratégico.</p>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">70%</div>
+            <div class="text-gray-600 text-xs">leads via orgânico</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">47</div>
+            <div class="text-gray-600 text-xs">palavras no top 1</div>
+          </div>
+          <div class="text-center">
+            <div class="text-xl font-bold mb-1 text-gradient" style="font-family:'Syne',sans-serif">-65%</div>
+            <div class="text-gray-600 text-xs">custo por lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Por que APEX360 ────────────────────────────────────────────────────── -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">Por que a APEX360?</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5" style="font-family:'Syne',sans-serif">SEO com estratégia, não com achismo</h2>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="animate-on-scroll stagger-1 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Google Partner Certificado</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Equipe com certificações Google, atualizada nas melhores práticas e mudanças de algoritmo.</p>
+      </div>
+      <div class="animate-on-scroll stagger-2 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Relatórios Transparentes</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Dashboards em tempo real com todos os KPIs: rankings, tráfego, conversões e ROI.</p>
+      </div>
+      <div class="animate-on-scroll stagger-3 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Foco em Conversão</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Não buscamos só cliques. Otimizamos para atrair o público que realmente converte.</p>
+      </div>
+      <div class="animate-on-scroll stagger-4 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Integração 360°</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">SEO integrado com Mídia Paga, Conteúdo e CRO para resultados amplificados.</p>
+      </div>
+      <div class="animate-on-scroll stagger-5 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Time Dedicado</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">Você tem um time especializado exclusivamente no seu projeto, não um atendimento genérico.</p>
+      </div>
+      <div class="animate-on-scroll stagger-6 bg-white rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="w-10 h-10 bg-brand-gradient rounded-lg flex items-center justify-center mb-5">
+          <svg class="w-5 h-5" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2" style="font-family:'Syne',sans-serif">Histórico Comprovado</h3>
+        <p class="text-gray-500 text-sm leading-relaxed">+220 projetos de SEO entregues com crescimento documentado e mensurável.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Depoimentos ────────────────────────────────────────────────────────── -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">Depoimentos</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5" style="font-family:'Syne',sans-serif">O que nossos clientes dizem</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="animate-on-scroll stagger-1 bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-gray-700 leading-relaxed mb-6 italic">"Em 8 meses saímos da página 5 para a primeira do Google nas principais palavras do nosso setor. O tráfego orgânico triplicou e as vendas online cresceram 240%."</p>
+        <div>
+          <div class="font-semibold text-gray-900" style="font-family:'Syne',sans-serif">Renata Oliveira</div>
+          <div class="text-gray-500 text-sm">CEO — Boutique Donna</div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll stagger-2 bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-gray-700 leading-relaxed mb-6 italic">"A APEX360 transformou nossa estratégia digital. Hoje 70% dos nossos leads vêm de SEO. A abordagem deles é muito diferente — analisam dados de verdade."</p>
+        <div>
+          <div class="font-semibold text-gray-900" style="font-family:'Syne',sans-serif">Carlos Mendes</div>
+          <div class="text-gray-500 text-sm">Diretor de Marketing — SoftFlow</div>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll stagger-3 bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
+        <div class="flex gap-1 mb-5">
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg class="w-4 h-4" fill="#FF4D00" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="text-gray-700 leading-relaxed mb-6 italic">"Conseguimos rankear para 'clínica estética [cidade]' em menos de 6 meses. A agenda lotou e tivemos que contratar mais profissionais. Resultado incrível."</p>
+        <div>
+          <div class="font-semibold text-gray-900" style="font-family:'Syne',sans-serif">Fernanda Castro</div>
+          <div class="text-gray-500 text-sm">Fundadora — Clínica Vitallis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ────────────────────────────────────────────────────────────────── -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center mb-16 animate-on-scroll">
+      <span class="text-sm font-semibold tracking-widest uppercase mb-4 block" style="color:#FF4D00">FAQ</span>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5" style="font-family:'Syne',sans-serif">Perguntas frequentes</h2>
+    </div>
+
+    <div class="space-y-3 animate-on-scroll stagger-2" id="faq-list">
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">Em quanto tempo o SEO começa a dar resultados?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          O SEO é uma estratégia de médio e longo prazo. Os primeiros resultados visíveis (melhora de rankings, aumento de tráfego) geralmente aparecem entre 3 e 6 meses. Resultados mais expressivos costumam se consolidar entre 6 e 12 meses.
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">SEO funciona para qualquer tipo de negócio?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          Sim. SEO funciona para e-commerces, prestadores de serviços, negócios locais, SaaS, clínicas, escritórios de advocacia, indústrias e muito mais. A estratégia é personalizada conforme o mercado, o público e os objetivos de cada empresa.
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">Preciso parar de fazer anúncios para investir em SEO?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          Não. SEO e mídia paga se complementam. O ideal é usar anúncios para resultados imediatos enquanto o SEO constrói uma base orgânica sólida. Com o tempo, o SEO reduz sua dependência e custo com anúncios.
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">Como vocês medem os resultados do SEO?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          Utilizamos ferramentas como Google Search Console, Google Analytics, Semrush e Ahrefs. Você terá acesso a relatórios periódicos com dados de ranking, tráfego orgânico, palavras-chave conquistadas, backlinks e conversões geradas pelo canal orgânico.
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">Qual é o investimento mínimo para SEO?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          O investimento varia conforme a competitividade do mercado, o tamanho do site e os objetivos. Após uma análise inicial gratuita, apresentamos uma proposta personalizada com escopo e valores claros.
+        </div>
+      </div>
+
+      <div class="faq-item border border-gray-100 rounded-lg overflow-hidden">
+        <button class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition-colors">
+          <span class="font-semibold text-gray-900 pr-4" style="font-family:'Syne',sans-serif">Vocês garantem o primeiro lugar no Google?</span>
+          <svg class="faq-chevron w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+          Nenhuma agência séria pode garantir posição específica no Google — isso viola as próprias diretrizes do buscador. O que garantimos é a aplicação das melhores práticas, um processo estruturado e histórico comprovado de crescimento orgânico real.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA Final ──────────────────────────────────────────────────────────── -->
+<section id="contato" class="py-24 bg-[#0A0A0A] relative overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10"
+      style="background:radial-gradient(circle,#FF4D00 0%,transparent 70%)"></div>
+  </div>
+  <div class="relative max-w-3xl mx-auto px-6 text-center animate-on-scroll">
+    <span class="text-sm font-semibold tracking-widest uppercase mb-6 block" style="color:#FF4D00">Vamos começar?</span>
+    <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight" style="font-family:'Syne',sans-serif">
+      Seu concorrente já está investindo em SEO
+    </h2>
+    <p class="text-gray-400 text-lg mb-10">
+      Solicite uma análise gratuita do seu site e descubra as oportunidades de crescimento orgânico que você ainda não está aproveitando.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="https://wa.me/5500000000000?text=Olá! Gostaria de uma análise gratuita de SEO para meu site." target="_blank" rel="noopener noreferrer"
+        class="bg-brand-gradient text-white font-semibold px-8 py-4 rounded hover:opacity-90 transition-opacity text-base" style="text-decoration:none">
+        Análise gratuita via WhatsApp
+      </a>
+      <a href="bundle.html#contato"
+        class="border border-white/20 text-white font-semibold px-8 py-4 rounded hover:bg-white/5 transition-colors text-base" style="text-decoration:none">
+        Falar com um especialista
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────────────────── -->
+<footer class="bg-[#0A0A0A] border-t border-white/5 py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <a href="bundle.html" class="flex items-center gap-2" style="text-decoration:none">
+      <div class="w-7 h-7 bg-brand-gradient rounded flex items-center justify-center">
+        <span class="text-white font-bold text-xs" style="font-family:'Syne',sans-serif">A</span>
+      </div>
+      <span class="font-bold text-lg text-white" style="font-family:'Syne',sans-serif">APEX<span class="text-gradient">360</span></span>
+    </a>
+    <p class="text-gray-600 text-sm">© 2024 APEX360. Todos os direitos reservados.</p>
+    <a href="bundle.html" class="text-gray-500 text-sm hover:text-white transition-colors" style="text-decoration:none">← Voltar ao início</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
+    { threshold: 0.1 }
+  )
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el))
+
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('navbar-scrolled', window.scrollY > 20)
+  })
+
+  // Mobile menu
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('open')
+  })
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item')
+      const isOpen = item.classList.contains('open')
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'))
+      if (!isOpen) item.classList.add('open')
+    })
+  })
+
+  // Counters
+  function animateCounter(el) {
+    const end = parseInt(el.dataset.counter)
+    const prefix = el.dataset.prefix || ''
+    const suffix = el.dataset.suffix || ''
+    const duration = 2000
+    const step = Math.ceil(end / (duration / 16))
+    let current = 0
+    const timer = setInterval(() => {
+      current = Math.min(current + step, end)
+      el.textContent = prefix + current.toLocaleString('pt-BR') + suffix
+      if (current >= end) clearInterval(timer)
+    }, 16)
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCounter(e.target)
+        counterObserver.unobserve(e.target)
+      }
+    })
+  }, { threshold: 0.5 })
+  document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el))
+</script>
+</body>
+</html>
