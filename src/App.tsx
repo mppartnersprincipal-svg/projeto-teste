@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './index.css'
 
 // ─── Scroll animation hook ───────────────────────────────────────────────────
@@ -272,6 +273,7 @@ const services = [
     title: 'SEO',
     desc: 'Domine os resultados orgânicos. Estratégia técnica, de conteúdo e de autoridade para crescimento sustentável.',
     tags: ['On-page', 'Link Building', 'Técnico'],
+    href: '/servicos/seo',
   },
   {
     icon: '📊',
@@ -332,25 +334,39 @@ function Services() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
-          {services.map((service, i) => (
-            <div
-              key={service.title}
-              className={`animate-on-scroll stagger-${Math.min(i + 1, 8)} group border border-gray-100 rounded-xl p-6 hover:border-[#FF4D00]/30 hover:shadow-lg transition-all duration-300 cursor-default`}
-            >
-              <div className="text-3xl mb-4">{service.icon}</div>
-              <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-[#FF4D00] transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>
-                {service.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-4">{service.desc}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {service.tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">
-                    {tag}
-                  </span>
-                ))}
+          {services.map((service, i) => {
+            const inner = (
+              <>
+                <div className="text-3xl mb-4">{service.icon}</div>
+                <h3 className="font-bold text-lg mb-2 text-gray-900 group-hover:text-[#FF4D00] transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>
+                  {service.title}
+                </h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-4">{service.desc}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {service.tags.map((tag) => (
+                    <span key={tag} className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                {service.href && (
+                  <div className="mt-4 text-[#FF4D00] text-xs font-semibold tracking-wide flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    Ver serviço →
+                  </div>
+                )}
+              </>
+            )
+            const cls = `animate-on-scroll stagger-${Math.min(i + 1, 8)} group border border-gray-100 rounded-xl p-6 hover:border-[#FF4D00]/30 hover:shadow-lg transition-all duration-300`
+            return service.href ? (
+              <Link key={service.title} to={service.href} className={cls} style={{ textDecoration: 'none' }}>
+                {inner}
+              </Link>
+            ) : (
+              <div key={service.title} className={`${cls} cursor-default`}>
+                {inner}
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>
