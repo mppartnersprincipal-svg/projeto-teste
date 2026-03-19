@@ -265,6 +265,25 @@ function Hero() {
   )
 }
 
+// ─── Video ────────────────────────────────────────────────────────────────────
+function VideoSection() {
+  return (
+    <section className="bg-[#0A0A0A] py-20">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            className="absolute inset-0 w-full h-full rounded-2xl"
+            src="https://www.youtube.com/embed/mH3a9NNr04U"
+            title="Vídeo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── Services ─────────────────────────────────────────────────────────────────
 const services = [
   {
@@ -873,6 +892,7 @@ export default function App() {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
+      <VideoSection />
       <Services />
       <Numbers />
       <Cases />
